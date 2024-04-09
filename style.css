@@ -1,0 +1,16 @@
+body {
+    font-family: sans-serif;
+}
+header {
+    text-align: center;
+}
+#login {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+#dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
