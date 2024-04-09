@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECT</title>
+    <title>REAL ESTATE SALES AGENCY</title>
     <link rel ="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
 </head>
 <body>
-    <header>
-        <h1>DEAL FORGE</h1>
-    </header>
-    <main>
+    <section class="header">
+        <a href="index.html"><img src="./img/2.png"></a>
+        <nav>
+            <h1>DEALS FORGE</h1>
+           
+            <div class="nav-links" id="nav-links">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="#notifications">Notifications</a></li>
+                    <li><a href="#units">Units</a></li>
+                    <li><a href="#sales">Sales</a></li>
+                    <li><a href="#earnings">Earnings</a></li>
+                    <li><a href="#settings">Settings</a></li>
+                 </ul>
+             
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
         <section id="login">
             <h2>Login</h2>
             <form id="login-form">

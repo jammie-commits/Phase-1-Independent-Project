@@ -1,16 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.content {
+    padding: 2%; /* Use percentages for padding */
+}
 body {
-    font-family: sans-serif;
+    color: #333399; /* Lighter Navy Blue */
+    margin: 0;
+    padding: 0;
 }
-header {
-    text-align: center;
+
+.header {
+    min-height: 100vh; /* 100% of viewport height */
+    width: 100vw; /* 100% of viewport width */
+    background: linear-gradient(to bottom, #163d5f, #db440d); /* Gradient colors */
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
-#login {
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-}
-#dashboard {
+
+
+nav {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: #e8ecf2;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-links ul li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+
+img {
+    width: 150px;
+}
+
+h1 {
+    color: #dddde6;
+    font-size: 40px;
+    margin-left: 500px;
 }
