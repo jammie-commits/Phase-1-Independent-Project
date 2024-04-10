@@ -1,116 +1,68 @@
-const baseUrl = 'http://localhost:3000/';
-
-let loggedInAgent = null; 
-
-const dataContainer = document.getElementById('dashboard'); 
-
-// Get the agent name input element
+// Get references to the input field, button, and result area
 const agentNameInput = document.getElementById('agentName');
+const submitButton = document.querySelector('button[type="submit"]');
+const agentResults = document.getElementById('agent-results');
 
-// Form submission handling
-const form = document.querySelector('form'); // Assuming the agent name input is within a form
-
-form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent default form submission
-
-  const agentName = agentNameInput.value;
-
-  fetch(`${baseUrl}/agents/${agentName}`)
-    .then(response => response.json())
-    .then(agentData => {
-      if (agentData) {
-        loggedInAgent = agentData; 
-        updateAllSections(agentData); 
+// Function to load agent data from db.json
+function loadAgentData(name) {
+  fetch('db.json')  // Fetch data from db.json file
+    .then(response => response.json())  // Parse JSON response
+    .then(data => {
+      const matchingAgent = data.agents.find(agent => agent.name === name);
+      if (matchingAgent) {
+        displayAgentResults(matchingAgent);  // Display results if agent found
       } else {
-        alert('Agent not found!');
+        agentResults.textContent = 'Agent not found.';  // Display message if not found
       }
     })
-    .catch(error => {
-      console.error('Error fetching agent data:', error);
-      alert('An error occurred. Please try again later.');
-    });
+    .catch(error => console.error('Error loading data:', error));  // Handle errors
+}
+
+// Function to display agent performance data
+function displayAgentResults(agent) {
+  // Clear any previous content
+  agentResults.innerHTML = '';  // Removes any existing content
+
+  // Create elements to display properties, commission, and salary
+  const propertiesList = document.createElement('ul');
+  const commissionPara = document.createElement('p');
+  const salaryPara = document.createElement('p');
+
+  // Loop through properties and create list items
+  agent.properties.forEach(property => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `- ${property.address} (Price: $${property.price}, Commission Rate: ${property.commissionRate}%)`;
+    if (property.sold) {
+      listItem.style.fontWeight = 'bold';  // Mark sold properties as bold
+    }
+    propertiesList.appendChild(listItem);
+  });
+
+  // Calculate and display commission (assuming a simple calculation)
+  let totalCommission = 0;
+  agent.properties.forEach(property => {
+    if (property.sold) {
+      totalCommission += property.price * (property.commissionRate / 100);
+    }
+  });
+  commissionPara.textContent = `Total Commission Earned: $${totalCommission.toFixed(2)}`;
+
+  // Salary calculation can be based on a fixed value or a formula (replace with your logic)
+  salaryPara.textContent = `Salary: $${2000}`; // Replace with your salary calculation
+
+  // Add elements to the result area
+  agentResults.appendChild(propertiesList);
+  agentResults.appendChild(commissionPara);
+  agentResults.appendChild(salaryPara);
+}
+
+// Add event listener to the submit button
+submitButton.addEventListener('click', (event) => {
+  event.preventDefault(); // Prevent default form submission behavior
+  const enteredName = agentNameInput.value.trim();
+  if (enteredName) {
+    loadAgentData(enteredName);
+  } else {
+    agentResults.textContent = 'Please enter an agent name.';
+  }
 });
-
-// DOMContentLoaded event listener
-// document.addEventListener('DOMContentLoaded', function() {
-  
-// });
-
-
-// let propertyListings = []; 
-
-// function updatePropertyListings(agentData) {
-//   const assignedProperties = agentData.assignedProperties || [];
-
-//   let output = `<h2>Property Listings for ${agentData.name}</h2>`;
-//   output += "<ul>";
-//   for (const property of propertyListings) { 
-//     if (assignedProperties.includes(property.id)) {
-//       output += `<li>${property.name} (Sold: ${property.soldStatus})</li>`;
-//     }
-//   }
-//   output += "</ul>";
-
-//   const propertyListSection = document.getElementById('properties');
-//   propertyListSection.innerHTML = output;
-// }
-
-// function updateSalesData(agentData) {
-//   const agentName = agentData.name;
-
-//   fetch(`${baseUrl}/agents/${agentName}/sales`)
-//     .then(response => response.json())
-//     .then(salesData => {
-//       if (salesData) {
-//         const salesOutput = processSalesData(salesData); 
-//         const salesDataSection = document.getElementById('sales');
-//         salesDataSection.innerHTML = salesOutput;
-//       } else {
-//         alert('Error: Sales data not found for this agent.');
-//       }
-//     })
-//     .catch(error => {
-//       console.error('Error fetching sales data:', error);
-      
-//     });
-// }
-
-// function updatePerformanceData(agentData) {
-//   const agentName = agentData.name;
-
-//   fetch(`${baseUrl}/agents/${agentName}/performance`)
-//     .then(response => response.json())
-//     .then(performanceData => {
-//       if (performanceData) { 
-//         const performanceOutput = processPerformanceData(performanceData); 
-//         const performanceDataSection = document.getElementById('performance');
-//         performanceDataSection.innerHTML = performanceOutput;
-//       } else {
-//         alert('Error: Performance data not found for this agent.');
-//       }
-//     })
-//     .catch(error => {
-//       console.error('Error fetching performance data:', error);
-      
-//     });
-// }
-
-// function updateEarningsData(agentData) {
-//   const agentName = agentData.name;
-
-//   fetch(`${baseUrl}/agents/${agentName}/earnings`)
-//     .then(response => response.json())
-//     .then(earningsData => {
-//       if (earningsData) { 
-//         const earningsOutput = processEarningsData(earningsData); 
-//         const earningsDataSection = document.getElementById('earnings');
-//         earningsDataSection.innerHTML = earningsOutput;
-//       } else {
-//         alert('Error: Earnings data not found for this agent.');
-//       }
-//     })
-//     .catch(error => {
-//       console.error('Error fetching earnings data:', error);
-      
-//     });
-// }
