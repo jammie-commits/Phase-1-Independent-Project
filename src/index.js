@@ -31,7 +31,7 @@ function displayAgentResults(agent) {
   // Loop through properties and create list items
   agent.properties.forEach(property => {
     const listItem = document.createElement('li');
-    listItem.textContent = `- ${property.address} (Price: $${property.price}, Commission Rate: ${property.commissionRate}%)`;
+    listItem.textContent = `- ${property.address} (Price: ksh${property.price}, Commission Rate: ${property.commissionRate}%)`;
     if (property.sold) {
       listItem.style.fontWeight = 'bold';  // Mark sold properties as bold
     }
@@ -45,10 +45,10 @@ function displayAgentResults(agent) {
       totalCommission += property.price * (property.commissionRate / 100);
     }
   });
-  commissionPara.textContent = `Total Commission Earned: $${totalCommission.toFixed(2)}`;
+  commissionPara.textContent = `Total Commission Earned: ksh${totalCommission.toFixed(2)}`;
 
   // Salary calculation can be based on a fixed value or a formula (replace with your logic)
-  salaryPara.textContent = `Salary: $${2000}`; // Replace with your salary calculation
+  salaryPara.textContent = `Salary: ksh${20000}`; // Replace with your salary calculation
 
   // Add elements to the result area
   agentResults.appendChild(propertiesList);

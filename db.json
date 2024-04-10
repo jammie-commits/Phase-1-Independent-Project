@@ -1,16 +1,16 @@
 {
   "agents": [
     {
-      "name": "Alice Smith",
+      "name": "James Mbugua",
       "properties": [
         {
-          "address": "10 Maple Lane",
+          "address": "Maple",
           "price": 250000,
           "commissionRate": 3,
           "sold": false
         },
         {
-          "address": "55 Elm Street",
+          "address": "Elm Street",
           "price": 180000,
           "commissionRate": 2,
           "sold": true
@@ -18,10 +18,10 @@
       ]
     },
     {
-      "name": "Bob Jones",
+      "name": "Grace Mwende",
       "properties": [
         {
-          "address": "12 Main Street",
+          "address": "ngong lane",
           "price": 300000,
           "commissionRate": 4,
           "sold": false
@@ -29,16 +29,16 @@
       ]
     },
     {
-      "name": "Charlie Brown",
+      "name": "Jacka Cisse",
       "properties": [
         {
-          "address": "42 Cherry Avenue",
+          "address": "Ruaraka",
           "price": 150000,
           "commissionRate": 2.5,
           "sold": true
         },
         {
-          "address": "7 Pine Court",
+          "address": "Pine Court",
           "price": 220000,
           "commissionRate": 3.5,
           "sold": false
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "name": "Diana Garcia",
+      "name": "Tiana Waithera",
       "properties": [] 
     }
   ]
