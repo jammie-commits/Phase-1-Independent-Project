@@ -11,39 +11,55 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
 </head>
 <body>
-    <section class="header">
+<section class="header">
+    <nav>
         <a href="index.html"><img src="./img/2.png"></a>
-        <nav>
-            <h1>DEALS FORGE</h1>
-           
-            <div class="nav-links" id="nav-links">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
-                <ul>
-                    <li><a href="#notifications">Notifications</a></li>
-                    <li><a href="#units">Units</a></li>
-                    <li><a href="#sales">Sales</a></li>
-                    <li><a href="#earnings">Earnings</a></li>
-                    <li><a href="#settings">Settings</a></li>
-                 </ul>
-             
-            </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
-        </nav>
-    </section>
-        <section id="login">
-            <h2>Login</h2>
-            <form id="login-form">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
-                <button type="submit">Login</button>
-            </form>
-        </section>
-        <section id="dashboard" style="display: none;">
-        <h2>Agent Dashboard</h2>
-    </section>
-    </main>
-    <script src="./src/index.js"></script>
+        <div class="nav-links" id="nav-links">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">DASHBOARD</a></li>
+                <li><a href="">PERFORMANCE</a></li>
+                <li><a href="">SALES</a></li>
+                <li><a href="">UNITS</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <div class="text-box">
+        <h1>DEALS FORGE</h1>
+        <p>Welcome Home</p>
+        <a href="" class="hero-btn">LOGIN</a>
+    </div>
+
+</section>
+
+<!---- DASHBOARD -->
+
+<section class="dashboard">
+    <h1>DASHBOARD</h1>
+    <p>Your sales Dashboard</p>
+
+    <div class="row">
+        <div class="dash-col">
+            <h3>PROPERTY LISTINGS</h3>
+        </div>
+        <div class="dash-col">
+            <h3>SALES TRACKING</h3>
+        </div>
+        <div class="dash-col">
+            <h3>PERFORMANCE OVERVIEW</h3>
+        </div>
+        <div class="dash-col">
+            <h3>EARNINGS</h3>
+        </div>
+    </div>
+
+
+</section>
 </body>
+
+  <script src="./src/index.js"></script>
 </html>
+
