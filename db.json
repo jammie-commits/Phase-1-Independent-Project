@@ -1,0 +1,107 @@
+{
+    "agents": [
+      {
+        "agentName": "James Mbugua",
+        "contact": {
+          "email": "james.mbugua.ph@gmail.com",
+          "phone": "0728179416",
+          "assignedProperties": [1, 2, 3, 4]
+        },
+        "performanceData": {
+          "totalSales": 0,
+          "commissionEarned": 0,
+          "averageSalePrice": 0,
+          "assignedProperties": [1, 2, 3, 4]
+        }
+      },
+      {
+        "agentName": "Jacka Cisse",
+        "contact": {
+          "email": "jackacisse@gmail.com",
+          "phone": "0712345678",
+          "assignedProperties": [1, 2, 3, 4]
+        },
+        "performanceData": {
+          "totalSales": 0,
+          "commissionEarned": 0,
+          "averageSalePrice": 0,
+          "assignedProperties": [1, 2, 3, 4]
+        }
+      },
+      {
+        "agentName": "Kelvin Muriithi",
+        "contact": {
+          "email": "kelvinmuriithi@gmail.com",
+          "phone": "0723456789",
+          "assignedProperties": [1, 2, 3, 4]
+        },
+        "performanceData": {
+          "totalSales": 0,
+          "commissionEarned": 0,
+          "averageSalePrice": 0
+        }
+      },
+      {
+        "agentName": "Grace Mwende",
+        "contact": {
+          "email": "gracemwende@gmail.com",
+          "phone": "0734567890"
+        },
+        "performanceData": {
+          "totalSales": 0,
+          "commissionEarned": 0,
+          "averageSalePrice": 0
+        }
+      }
+    ],
+    "properties": [
+        {
+            "id": "property1",  
+            "name": "Baraka Court",
+            "price": 500000,
+            "soldStatus": false
+          },
+          {
+            "id": "property2",
+            "name": "Lebrown Tower",
+            "price": 750000,
+            "soldStatus": true
+          },
+          {
+            "id": "property3",
+            "name": "Oak Villa",
+            "price": 600000,
+            "soldStatus": false
+          },
+          {
+            "id": "property4",  
+            "name": "Bliss",
+            "price": 825000,
+            "soldStatus": true
+        }
+    
+    ],
+    "salesData": [
+      {
+        "agent": "John Doe",
+        "unitsSold": 0,
+        "commissionEarned": 0
+      },
+      {
+        "agent": "Jane Smith",
+        "unitsSold": 0,
+        "commissionEarned": 0
+      },
+      {
+        "agent": "Michael Lee",
+        "unitsSold": 0,
+        "commissionEarned": 0
+      },
+      {
+        "agent": "Sarah Jones",
+        "unitsSold": 0,
+        "commissionEarned": 0
+      }
+    ]
+  }
+  

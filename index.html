@@ -16,9 +16,7 @@
         <a href="index.html"><img src="./img/2.png"></a>
         <div class="nav-links" id="nav-links">
             <i class="fa fa-times" onclick="hideMenu()"></i>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="#dashboard">DASHBOARD</a></li>
+            <ul id="dashboard-menu">  <li><a href="#dashboard">DASHBOARD</a></li>
                 <li><a href="#performance">PERFORMANCE</a></li>
                 <li><a href="#sales">SALES</a></li>
                 <li><a href="#earnings">EARNINGS</a></li>
@@ -29,13 +27,13 @@
 
     <div class="text-box">
         <h1>DEALS FORGE</h1>
-        <p>Welcome Home</p>
-        <a href="" class="hero-btn">LOGIN</a>
+        <p>Enter Agent Name</p>
+        <label for="agentName">Agent Name:</label>
+                <input type="text" id="agentName" name="agentName">
+                <button type="submit">Submit</button>
     </div>
 
 </section>
-
-<!---- DASHBOARD -->
 
 <section id="dashboard">
     <h1>DASHBOARD</h1>
@@ -46,20 +44,20 @@
             <h3 id="properties">PROPERTY LISTINGS</h3>
         </div>
         <div class="dash-col">
-            <h3 id="sales">SALES TRACKING</h3>
+            <h3 id="sales">SALES DATA</h3>
         </div>
         <div class="dash-col">
-            <h3 id="performance">PERFORMANCE OVERVIEW</h3>
+            <h3 id="performance">PERFORMANCE DATA</h3>
         </div>
         <div class="dash-col">
-            <h3 id="earnings">EARNINGS</h3>
+            <h3 id="earnings">EARNINGS DATA</h3>
         </div>
     </div>
 
 
 </section>
-</body>
 
-  <script src="./src/index.js"></script>
+<script src="./src/index.js"></script>
+ </body>
+
 </html>
-
