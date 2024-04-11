@@ -3,22 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales Agency Performance Tracker</title>
-    <link rel ="stylesheet" href="./style.css">
-    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AGENT PERFORMANCE TRACKER</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+</head>
 <body>
-<section class="header">
-    <div class="text-box">
-        <h1>REAL ESTATE SALES AGENCY</h1>
-        <p>View agent performance by entering their name below.</p>
-        <label for="agentName">Agent Name:</label>
-                <input type="text" id="agentName" name="agentName">
-                <button type="submit">View Performance</button>
-    </div>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="./img/2.png"></a>   
+        </nav>
+            <div class="text-box">
+              <h1>DEALS FORGE</h1>
+              <p>View agent performance by entering their name below.</p>
+              <label for="agentName">Agent Name:</label>
+              <input type="text" id="agentName" name="agentName">
+            <button type="submit">View Performance</button>
+            
+        </div>
+        <div id="agent-results-container"></div>
+        <div id="agent-results"></div> 
+     <script src="./src/index.js"></script>
+    </section>
 
-</section>
+   
 
-<div id="agent-results"></div>  <script src="./src/index.js"></script>
- </body>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+</body>
 
 </html>

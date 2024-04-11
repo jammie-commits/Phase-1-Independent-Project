@@ -1,72 +1,87 @@
-/* General Styles */
-
 * {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background-color: #f2f2f2;  /* Light background for content area */
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(./img/3.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
 
-/* Header Section */
-
-.header {
-    padding: 2% 6%;
+nav {
     display: flex;
+    padding: 2% 6%;
     justify-content: space-between;
     align-items: center;
 }
 
-.header h1 {
-    font-size: 30px;  /* Adjust heading size */
+nav img {
+    width: 150px;
 }
 
-/* Input and Button Area */
 
 .text-box {
-    width: 50%;  /* Reduce width for better responsiveness */
-    margin: auto;
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.text-box h1 {
+    font-size: 62px;
 }
 
 .text-box p {
-    margin-bottom: 20px;   /* Add some space before input field */
-}
-
-/* Agent Results Area (placeholder for future styling) */
-
-#agent-results {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-/* Responsive Adjustments */
-
-@media(max-width: 768px) {
-    .header h1 {
-        font-size: 24px;
-    }
-    .text-box {
-        width: 80%;
-    }
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: #fff;
 }
 
 
-
-.hero-btn,
-nav .fa,
-#dashboard,
-/* Target h1 and p styles within their respective media queries */
-h1:not([class]), /* Target h1 elements not having any class */
-p:not([class]), /* Target p elements not having any class */
-.row,
-.dash-col,
-h3:not([class]), /* Target h3 elements not having any class */
 @media(max-width: 700px) {
-    .nav-links ul {  /* Remove unused media query rule */
-        display: none;
+    .text-box h1 {
+        font-size: 20px;
+    }
+
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+p {
+    color: #777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+
+@media(max-width: 700px) {
+    .row {
+        flex-direction: column;
     }
 }
+}
+#agent-results-container {
+    background-color: white; /* Set background color to white */
+    margin: 0 auto;  /* Center the box horizontally */
+    width: 60%;  /* Adjust width as needed */
+    padding: 20px; /* Add padding for content */
+    border: 1px solid #ddd; /* Add a thin border */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.2s ease-in-out; /* Set up transition for hover effect */
+  }
+  
+  #agent-results-container:hover {
+    transform: translateY(-5px); /* Move the box up slightly on hover */
+  }

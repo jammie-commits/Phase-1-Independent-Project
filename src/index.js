@@ -27,6 +27,10 @@ function displayAgentResults(agent) {
   const propertiesList = document.createElement('ul');
   const commissionPara = document.createElement('p');
   const salaryPara = document.createElement('p');
+  const container = document.getElementById('agent-results-container');
+  
+  // clear any previous content within the container
+  container.innerHTML = '';
 
   // Loop through properties and create list items
   agent.properties.forEach(property => {
@@ -34,6 +38,11 @@ function displayAgentResults(agent) {
     listItem.textContent = `- ${property.address} (Price: ksh${property.price}, Commission Rate: ${property.commissionRate}%)`;
     if (property.sold) {
       listItem.style.fontWeight = 'bold';  // Mark sold properties as bold
+
+      // Add elements to the container
+  container.appendChild(propertiesList);
+  container.appendChild(commissionPara);
+  container.appendChild(salaryPara);
     }
     propertiesList.appendChild(listItem);
   });
