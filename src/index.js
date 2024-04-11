@@ -18,19 +18,13 @@ function loadAgentData(name) {
     .catch(error => console.error('Error loading data:', error));  // Handle errors
 }
 
-// Function to display agent performance data
 function displayAgentResults(agent) {
-  // Clear any previous content
-  agentResults.innerHTML = '';  // Removes any existing content
 
   // Create elements to display properties, commission, and salary
   const propertiesList = document.createElement('ul');
   const commissionPara = document.createElement('p');
   const salaryPara = document.createElement('p');
   const container = document.getElementById('agent-results-container');
-  
-  // clear any previous content within the container
-  container.innerHTML = '';
 
   // Loop through properties and create list items
   agent.properties.forEach(property => {
@@ -38,11 +32,6 @@ function displayAgentResults(agent) {
     listItem.textContent = `- ${property.address} (Price: ksh${property.price}, Commission Rate: ${property.commissionRate}%)`;
     if (property.sold) {
       listItem.style.fontWeight = 'bold';  // Mark sold properties as bold
-
-      // Add elements to the container
-  container.appendChild(propertiesList);
-  container.appendChild(commissionPara);
-  container.appendChild(salaryPara);
     }
     propertiesList.appendChild(listItem);
   });
@@ -56,13 +45,13 @@ function displayAgentResults(agent) {
   });
   commissionPara.textContent = `Total Commission Earned: ksh${totalCommission.toFixed(2)}`;
 
-  // Salary calculation can be based on a fixed value or a formula (replace with your logic)
-  salaryPara.textContent = `Salary: ksh${20000}`; // Replace with your salary calculation
+  // Salary calculation can be based on a fixed value or a formula 
+  salaryPara.textContent = `Salary: ksh${20000}`; 
 
-  // Add elements to the result area
-  agentResults.appendChild(propertiesList);
-  agentResults.appendChild(commissionPara);
-  agentResults.appendChild(salaryPara);
+  // Add elements to the container
+  container.appendChild(propertiesList);
+  container.appendChild(commissionPara);
+  container.appendChild(salaryPara);
 }
 
 // Add event listener to the submit button
