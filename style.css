@@ -7,7 +7,7 @@
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(./img/3.jpg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7));
     background-position: center;
     background-size: cover;
     position: relative;
@@ -58,7 +58,7 @@ h1 {
 }
 
 p {
-    color: #777;
+    color: #e5e0e0;
     font-size: 14px;
     font-weight: 300;
     line-height: 22px;
@@ -72,16 +72,21 @@ p {
 }
 }
 #agent-results-container {
-    background-color: white; /* Set background color to white */
-    margin: 0 auto;  /* Center the box horizontally */
-    width: 60%;  /* Adjust width as needed */
-    padding: 20px; /* Add padding for content */
-    border: 1px solid #ddd; /* Add a thin border */
-    border-radius: 5px; /* Add rounded corners */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    transition: transform 0.2s ease-in-out; /* Set up transition for hover effect */
+    background-color: rgb(21, 92, 106); 
+    color: white; 
+    margin: 0 auto; 
+    width: 60%;  
+    padding: 20px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s ease-in-out; 
+    text-align: center; 
   }
   
+  #agent-results-container h2 { 
+    margin-bottom: 15px; 
+  }
   #agent-results-container:hover {
-    transform: translateY(-5px); /* Move the box up slightly on hover */
+    transform: translateY(-5px); 
   }
