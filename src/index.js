@@ -35,7 +35,7 @@ function displayAgentResults(agent) {
   // Loop through properties and create list items
   agent.properties.forEach(property => {
     const listItem = document.createElement('li');
-    listItem.textContent = `- ${property.address} (Price: ksh${property.price}, Commission Rate: ${property.commissionRate}%)`;
+    listItem.textContent = `* ${property.name} :Price- ksh${property.price} : Commission Rate: ${property.commissionRate}%)`;
     if (property.sold) {
       listItem.style.color = 'orange';
       listItem.style.fontWeight = 'bold';
@@ -69,6 +69,6 @@ submitButton.addEventListener('click', (event) => {
   if (enteredName) {
     loadAgentData(enteredName);
   } else {
-    agentResults.textContent = 'Please enter an agent name.';
+    alert('Please enter an agent name.');
   }
 });
