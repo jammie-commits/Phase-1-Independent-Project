@@ -39,14 +39,26 @@ function displayAgentResults(agent) {
     const row = document.createElement('tr');
     const nameCell = document.createElement('td');
     nameCell.textContent = property.name;
+
+    // Create and add delete button within the same cell
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Remove';
+    deleteButton.classList.add('remove-property'); // Add a class for styling
+    nameCell.appendChild(deleteButton);
+
+    // Add event listener to the delete button
+    deleteButton.addEventListener('click', () => {
+      const index = agent.properties.indexOf(property);
+      if (index > -1) {
+        agent.properties.splice(index, 1);
+        displayAgentResults(agent); // Update results after removal
+      }
+    });
+
     const soldCell = document.createElement('td');
     soldCell.textContent = property.sold ? 'Yes' : 'No';
     row.appendChild(nameCell);
     row.appendChild(soldCell);
-
-    // Optional: Add functionality for delete button within table cell
-    // ... (implement delete button functionality)
-
     table.appendChild(row);
   });
 
@@ -85,32 +97,3 @@ submitButton.addEventListener('click', (event) => {
   }
 });
 
-// Add event listener to the "Add" button
-addButton.addEventListener('click', (event) => {
-  event.preventDefault(); // Prevent default form submission
-
-  const propertyName = propertyNameInput.value.trim(); // Get and trim property name
-
-  if (!propertyName) {
-    alert('Accepted!');
-    return;
-  }
-
-  const agentName = prompt('Enter Agent Name:');
-
-  if (!agentName) {
-    return; // User canceled the prompt
-  }
-
-  // Create a new property object (consider adding other property details)
-  const newProperty = {
-    name: propertyName,
-    // Add other property details (sold status, price, commission rate, etc.)
-  };
-
-  // Add the new property to the agent's properties array
-  // ... (assuming you have a reference to the agent object)
-  matchingAgent.properties.push(newProperty);
-
-  //
-})
