@@ -66,7 +66,7 @@ function displayAgentResults(agent) {
     });
   });
 
-  submitButton.addEventListener('click', (event) => {
+  addButton.addEventListener('click', (event) => {
     event.preventDefault(); // Prevent default form submission
 
     const propertyName = propertyNameInput.value.trim(); // Get and trim property name
@@ -81,7 +81,22 @@ function displayAgentResults(agent) {
     if (!agentName) {
       return; // User canceled the prompt
     }
+    
+     // Create a new property object
+     const newProperty = {
+      name: propertyName,
+      // Add other property details (sold status, etc.)
+    };
 
+    // Add the new property to the agent's properties array
+    matchingAgent.properties.push(newProperty);
+
+    // Update the displayed results (call a function to refresh agent details)
+    displayAgentResults(matchingAgent);
+
+    // Clear the property name input for the next submission
+    propertyNameInput.value = '';
+  });
   // Calculate and display commission (assuming a simple calculation)
   let totalCommission = 0;
   agent.properties.forEach(property => {
