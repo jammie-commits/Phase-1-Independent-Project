@@ -4,7 +4,7 @@
 ## Description
 This project is on a Real Estate Sales Agency with a number "n" of sales agents. The sales agency allocates a number "x" of units to each agent for to sell. Also the salary is calculated based on the commissions from the sales meaning the commission is also calculated and displayed based on the value if the unit sold. The agent has to input his/her name in the agent name input area to populate properties allocated, also sold properties are uniquely output in bold and orange color.
 
-### Functionality
+### process
     • Loads agent data: The loadAgentData function fetches data from db.json and searches for an agent matching the provided name. If found, it calls displayAgentResults to display details. 
     • Displays agent results: The displayAgentResults function creates a detailed view for the agent, including: 
         ◦ Properties list with delete buttons for each property. 
