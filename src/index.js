@@ -3,6 +3,11 @@ const agentNameInput = document.getElementById('agentName');
 const submitButton = document.querySelector('button[type="submit"]');
 const agentResultsContainer = document.getElementById('agent-results-container'); // Corrected container ID
 
+ // Get references to the input field, button, and result area
+ const propertyNameInput = document.getElementById('propertyName');
+ const addButton = document.querySelector('button[type="submit"]');
+
+  
 // Function to load agent data from db.json
 function loadAgentData(name) {
   fetch('db.json')  // Fetch data from db.json file
@@ -60,6 +65,22 @@ function displayAgentResults(agent) {
       }
     });
   });
+
+  submitButton.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    const propertyName = propertyNameInput.value.trim(); // Get and trim property name
+
+    if (!propertyName) {
+      alert('Please enter a property name.');
+      return;
+    }
+
+    const agentName = prompt('Enter Agent Name:');
+
+    if (!agentName) {
+      return; // User canceled the prompt
+    }
 
   // Calculate and display commission (assuming a simple calculation)
   let totalCommission = 0;
