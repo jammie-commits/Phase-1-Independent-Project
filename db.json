@@ -4,13 +4,13 @@
       "name": "James Mbugua",
       "properties": [
         {
-          "name": "Maple",
+          "name": "lakuzi",
           "price": 250000,
           "commissionRate": 3,
           "sold": false
         },
         {
-          "address": "Elm Street",
+          "name": "Daykio",
           "price": 180000,
           "commissionRate": 2,
           "sold": true
@@ -21,7 +21,7 @@
       "name": "Grace Mwende",
       "properties": [
         {
-          "name": "ngong lane",
+          "name": "Texas",
           "price": 300000,
           "commissionRate": 4,
           "sold": false
@@ -32,13 +32,13 @@
       "name": "Jacka Cisse",
       "properties": [
         {
-          "name": "Ruaraka",
+          "name": "Demas",
           "price": 150000,
           "commissionRate": 2.5,
           "sold": true
         },
         {
-          "name": "Pine Court",
+          "name": "Bliss",
           "price": 220000,
           "commissionRate": 3.5,
           "sold": false
@@ -47,7 +47,14 @@
     },
     {
       "name": "Tiana Waithera",
-      "properties": [] 
+      "properties": [
+        {
+        "name": "Nixi",
+          "price": 150000,
+          "commissionRate": 2.5,
+          "sold": true
+        }
+      ] 
     }
   ]
 }

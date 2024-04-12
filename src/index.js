@@ -1,7 +1,7 @@
 // Get references to the input field, button, and result area
 const agentNameInput = document.getElementById('agentName');
 const submitButton = document.querySelector('button[type="submit"]');
-const agentResults = document.getElementById('agent-results');
+const agentResultsContainer = document.getElementById('agent-results-container'); // Corrected container ID
 
 // Function to load agent data from db.json
 function loadAgentData(name) {
@@ -12,8 +12,7 @@ function loadAgentData(name) {
       if (matchingAgent) {
         displayAgentResults(matchingAgent);  // Display results if agent found
       } else {
-        agentResults.textContent = 'Agent not found.';  // Display message if not found
-      }
+        alert('Agent not found!');      }
     })
     .catch(error => console.error('Error loading data:', error));  // Handle errors
 }
@@ -25,22 +24,41 @@ function displayAgentResults(agent) {
   const commissionPara = document.createElement('p');
   const salaryPara = document.createElement('p');
 
-  const container = document.getElementById('agent-results-container');
-  container.innerHTML = '';
+  // Clear the container before displaying new results
+  agentResultsContainer.innerHTML = ''; // Corrected container
 
   // Create a heading element
   const heading = document.createElement('h2');
   heading.textContent = `Agent Performance Details for ${agent.name}`;
 
-  // Loop through properties and create list items
+  // Loop through properties and create list items with delete buttons
   agent.properties.forEach(property => {
     const listItem = document.createElement('li');
-    listItem.textContent = `- ${property.name} (Price: ksh${property.price}, Commission Rate: ${property.commissionRate}%)`;
+    listItem.textContent = `. ${property.name}`;
+
+    // Create and add delete button
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Remove';
+    deleteButton.classList.add('remove-project');  // Add a class for styling
+    listItem.appendChild(deleteButton);
+
+    // Add styling for sold properties 
     if (property.sold) {
       listItem.style.color = 'orange';
       listItem.style.fontWeight = 'bold';
     }
+
+    // Add property and delete button to the list
     propertiesList.appendChild(listItem);
+
+    // Add event listener to the delete button
+    deleteButton.addEventListener('click', () => {
+      const index = agent.properties.indexOf(property);
+      if (index > -1) {
+        agent.properties.splice(index, 1);
+        displayAgentResults(agent); // Update results after removal
+      }
+    });
   });
 
   // Calculate and display commission (assuming a simple calculation)
@@ -55,11 +73,11 @@ function displayAgentResults(agent) {
   // Salary calculation can be based on a fixed value or a formula 
   salaryPara.textContent = `Salary: ksh${20000}`; 
 
-  // Add elements to the container
-  container.appendChild(heading);
-  container.appendChild(propertiesList);
-  container.appendChild(commissionPara);
-  container.appendChild(salaryPara);
+  // Add elements to the container (corrected container ID)
+  agentResultsContainer.appendChild(heading);
+  agentResultsContainer.appendChild(propertiesList);
+  agentResultsContainer.appendChild(commissionPara);
+  agentResultsContainer.appendChild(salaryPara);
 }
 
 // Add event listener to the submit button
@@ -69,6 +87,5 @@ submitButton.addEventListener('click', (event) => {
   if (enteredName) {
     loadAgentData(enteredName);
   } else {
-    agentResults.textContent = 'Please enter an agent name.';
-  }
+    alert('Please enter an agent name.');  }
 });
