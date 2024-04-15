@@ -97,3 +97,54 @@ submitButton.addEventListener('click', (event) => {
   }
 });
 
+//  addPropertyToDatabase Function
+function addPropertyToDatabase(propertyName, targetAgentName) {
+  fetch('db.json')
+    .then(response => response.json()) // Parse existing data
+    .then(data => {
+      const targetAgent = data.agents.find(agent => agent.name === targetAgentName);
+
+      if (targetAgent) {
+        const newProperty = {
+          name: propertyName,
+          // Add other property details like price, sold status, etc. 
+        };
+
+        targetAgent.properties.push(newProperty); // Add to the target agent's properties
+
+        // Send a POST request to update db.json with the modified data
+        fetch('db.json', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+          .then(response => {
+            if (response.ok) {
+              alert('Property added successfully!');
+              // Clear the input field
+              propertyNameInput.value = '';
+            } else {
+              console.error('Error adding property:', response.statusText);
+              alert('Error adding property. Please try again.');
+            }
+          })
+          .catch(error => console.error('Error updating db.json:', error));
+      } else {
+        alert('Agent not found! Please check the agent name.');
+      }
+    })
+    .catch(error => console.error('Error loading data:', error));
+}
+
+
+// add event listener to add button
+addButton.addEventListener('click', (event) => {
+  event.preventDefault(); // Prevent default form submission behavior
+
+  const enteredPropertyName = propertyNameInput.value.trim();
+  if (enteredPropertyName) {
+    addPropertyToDatabase(enteredPropertyName);
+  } else {
+    alert('Please enter a property name.');
+  }
+});
